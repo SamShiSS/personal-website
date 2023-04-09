@@ -1,9 +1,12 @@
+import { Typography } from "@mui/material";
+
 function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <div
+    <Typography
+      variant="subtitle1"
       style={{
-        position: "fixed",
+        position: "absolute",
         left: "0",
         bottom: "10px",
         width: "100%",
@@ -18,7 +21,7 @@ function Footer() {
       >
         <img src="react.svg" height={18} width={18} />
       </a>
-    </div>
+    </Typography>
   );
 }
 

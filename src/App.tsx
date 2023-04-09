@@ -1,24 +1,38 @@
+import { Box } from "@mui/material";
 import { Route, Routes } from "react-router";
-import NavigationBar from "./components/NavigationBar";
 import Footer from "./components/Footer";
+import NavigationBar, { navBarHeight } from "./components/NavigationBar";
+import Blog from "./pages/Blog";
 import Home from "./pages/Home";
-import Tech from "./pages/Tech";
 import Research from "./pages/Research";
 import Running from "./pages/Running";
-import Contact from "./pages/Contact";
+import Tech from "./pages/Tech";
+import React from "react";
+
+export const pages: {
+  path: `/${string}`;
+  label: string;
+  component: React.ReactNode;
+}[] = [
+  { path: "/home", label: "Home", component: <Home /> },
+  { path: "/blog", label: "Blog", component: <Blog /> },
+  { path: "/tech", label: "Tech", component: <Tech /> },
+  { path: "/research", label: "Research", component: <Research /> },
+  { path: "/running", label: "Running", component: <Running /> },
+];
 
 function App() {
   return (
     <div>
       <NavigationBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/tech" element={<Tech />} />
-        <Route path="/research" element={<Research />} />
-        <Route path="/running" element={<Running />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <Box paddingTop={`calc(${navBarHeight} + 2rem)`} paddingX="2rem">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {pages.map(({ path, component }) => (
+            <Route path={path} element={component} />
+          ))}
+        </Routes>
+      </Box>
       <Footer />
     </div>
   );

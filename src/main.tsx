@@ -5,11 +5,11 @@ import "./index.css";
 import Maintenance from "./pages/Maintenance";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material";
-import { orange } from "@mui/material/colors";
 
 const theme = createTheme({
   typography: {
     h1: { fontSize: "3.2em", lineHeight: 1.1 },
+    fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
   },
   palette: {
     mode: "light",
