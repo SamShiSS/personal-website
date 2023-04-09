@@ -8,7 +8,7 @@ import { ThemeProvider, createTheme } from "@mui/material";
 
 const theme = createTheme({
   typography: {
-    h1: { fontSize: "3.2em", lineHeight: 1.1 },
+    h1: { fontSize: "3.2em" },
     fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
   },
   palette: {

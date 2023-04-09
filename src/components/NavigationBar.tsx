@@ -3,9 +3,10 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { Grid, IconButton, Tab, Tabs } from "@mui/material";
-import { useLocation } from "react-router";
+import { matchPath, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { pages } from "../App";
+import { uniqBy } from "lodash";
 
 export const navBarHeight = "48px";
 
@@ -26,7 +27,8 @@ function getActiveTabIndex(path: string): number {
   if (path === "/") {
     return 0;
   }
-  return pages.findIndex((page) => page.path === path);
+
+  return pages.find((page) => matchPath(page.path, path))?.tabValue ?? -1;
 }
 
 function NavigationBar() {
@@ -45,8 +47,8 @@ function NavigationBar() {
         value={getActiveTabIndex(location.pathname)}
         aria-label="top nav bar"
       >
-        {pages.map(({ path, label }) => (
-          <LinkTab to={path} label={label} />
+        {uniqBy(pages, "tabValue").map(({ path, label: label }) => (
+          <LinkTab key={path} to={path} label={label} />
         ))}
       </Tabs>
       <div style={{ display: "flex" }}>

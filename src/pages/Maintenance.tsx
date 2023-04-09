@@ -19,7 +19,7 @@ function Maintenance() {
         }}
         alt="construction icon"
       />
-      <h1>Under Maintenance</h1>
+      <h1>Under Construction</h1>
       <h2>Please check back later</h2>
     </div>
   );

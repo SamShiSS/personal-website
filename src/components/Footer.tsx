@@ -6,11 +6,8 @@ function Footer() {
     <Typography
       variant="subtitle1"
       style={{
-        position: "absolute",
-        left: "0",
-        bottom: "10px",
-        width: "100%",
         textAlign: "center",
+        marginTop: "1rem",
       }}
     >
       © {currentYear} Sam Shi – Created with{" "}
@@ -19,7 +16,7 @@ function Footer() {
         target="_blank"
         style={{ verticalAlign: "middle" }}
       >
-        <img src="react.svg" height={18} width={18} />
+        <img src="/react.svg" height={18} width={18} />
       </a>
     </Typography>
   );
